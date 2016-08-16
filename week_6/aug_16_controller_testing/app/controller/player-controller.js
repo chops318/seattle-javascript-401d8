@@ -8,7 +8,10 @@ demoApp.controller('PlayerController', ['$scope', function($scope){
   $scope.playerCtrl.isDone = false;
   $scope.playerCtrl.classes = ['slime', 'fuzzy', 'hacker', 'bubbly'];
 
-  $scope.playerCtrl.signUp = function(){
+  $scope.playerCtrl.signUp = function(player){
+    console.log('player', player);
+    // creates the player 
+    $scope.playerCtrl.player = player;
     $scope.playerCtrl.isDone = true;
   };
 }]);
