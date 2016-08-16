@@ -57,7 +57,8 @@
 	// create angular module
 	angular.module('demoApp', []);
 
-	console.log('hello yeye');
+	// controllers
+	__webpack_require__(8);
 
 /***/ },
 /* 1 */
@@ -31854,6 +31855,25 @@
 	})(window);
 
 	!window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var angular = __webpack_require__(6);
+	var demoApp = angular.module('demoApp');
+
+	demoApp.controller('PlayerController', ['$scope', function ($scope) {
+	  $scope.playerCtrl = {};
+	  $scope.playerCtrl.isDone = false;
+	  $scope.playerCtrl.classes = ['slime', 'fuzzy', 'hacker', 'bubbly'];
+
+	  $scope.playerCtrl.signUp = function () {
+	    $scope.playerCtrl.isDone = true;
+	  };
+	}]);
 
 /***/ }
 /******/ ]);

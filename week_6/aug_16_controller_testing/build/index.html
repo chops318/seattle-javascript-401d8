@@ -5,7 +5,30 @@
     <script src="bundle.js"></script>
     <link rel="stylesheet" href="bundle.css">
   </head>
-  <body>
-    <h1> Create Player </h1>
+  <body ng-init="wat='boo'">
+    <main ng-controller="PlayerController" ng-init="playerCtrl.player.class='bubbly';playerCtrl.player.name='foobar'">
+      <form ng-submit="playerCtrl.signUp()" ng-hide="playerCtrl.isDone"
+        novalidate name="createPlayerForm">
+        <label for="name">Name:</label>
+        <input name="name" type="text" ng-model="playerCtrl.player.name">
+
+        <label for="email">Email:</label>
+        <input name="email" type="email" ng-model="playerCtrl.player.email">
+
+        <label for="class">Class:</label>
+
+        <select name="class" ng-model="playerCtrl.player.class">
+          <option ng-repeat="item in playerCtrl.classes" value="{{item}}"> {{item}}</option>
+        </select>
+
+        <button type="submit"> Sign up </button>
+      </form>
+      <section ng-show="playerCtrl.isDone">
+       <h2> Player: {{playerCtrl.player.name}} </h2>
+        <p> Email: {{playerCtrl.player.email}}</p>
+        <p> Class: {{playerCtrl.player.class}}</p>
+      </section>
+    </main>
+
   </body>
 </html>

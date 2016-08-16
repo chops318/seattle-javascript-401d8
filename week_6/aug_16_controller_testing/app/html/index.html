@@ -7,17 +7,19 @@
   </head>
   <body ng-init="wat='boo'">
     <main ng-controller="PlayerController" ng-init="playerCtrl.player.class='bubbly';playerCtrl.player.name='foobar'">
-      <form ng-submit="playerCtrl.signUp()" ng-hide="playerCtrl.isDone"
-        novalidate name="createPlayerForm">
+    <form ng-submit="playerCtrl.signUp(createPlayerForm.player )"
+          ng-hide="playerCtrl.isDone"
+          novalidate 
+          name="createPlayerForm">
         <label for="name">Name:</label>
-        <input name="name" type="text" ng-model="playerCtrl.player.name">
+        <input name="name" type="text" ng-model="createPlayerForm.player.name">
 
         <label for="email">Email:</label>
-        <input name="email" type="email" ng-model="playerCtrl.player.email">
+        <input name="email" type="email" ng-model="createPlayerForm.player.email">
 
-        <label for="class">Class:</label>
+        <label for="class">Class:</label >
 
-        <select name="class" ng-model="playerCtrl.player.class">
+        <select name="class" ng-model="createPlayerForm.player.class">
           <option ng-repeat="item in playerCtrl.classes" value="{{item}}"> {{item}}</option>
         </select>
 
