@@ -6,3 +6,4 @@ require('./scss/base.scss');
 const angular = require('angular');
 angular.module('demoApp', []);
 
+require('./controller/list-controller');
