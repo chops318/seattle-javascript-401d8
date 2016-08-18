@@ -1,0 +1,19 @@
+@import "vendor/normalize/_normalize.scss";
+@include normalize();
+
+$app-default: #ff7a7a;
+
+html, body {
+  // position type
+  // padding and margins
+  // height width
+  // font stuff
+  // box stuff
+  // color
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: $app-default;
+}

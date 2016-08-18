@@ -51,13 +51,10 @@
 	__webpack_require__(1);
 	__webpack_require__(2);
 
-	// npm modules
+	// npm  modules
 	var angular = __webpack_require__(6);
+	var demoApp = angular.module('demoApp', []);
 
-	// create angular module
-	angular.module('demoApp', []);
-
-	// controllers
 	__webpack_require__(8);
 
 /***/ },
@@ -31865,18 +31862,63 @@
 	var angular = __webpack_require__(6);
 	var demoApp = angular.module('demoApp');
 
-	demoApp.controller('PlayerController', ['$scope', function ($scope) {
-	  $scope.playerCtrl = {};
-	  $scope.playerCtrl.isDone = false;
-	  $scope.playerCtrl.classes = ['slime', 'fuzzy', 'hacker', 'bubbly'];
+	demoApp.controller('GameController', ['$log', GameController]);
 
-	  $scope.playerCtrl.signUp = function (player) {
-	    console.log('player', player);
-	    // creates the player 
-	    $scope.playerCtrl.player = player;
-	    $scope.playerCtrl.isDone = true;
+	function GameController($log) {
+	  this.directions = ['north', 'south', 'east', 'west'];
+
+	  this.player = {
+	    name: 'percilla',
+	    location: 'roomA'
 	  };
-	}]);
+
+	  this.map = __webpack_require__(9);
+
+	  this.moveDirection = function (direction) {
+	    $log.debug('gameCtrl.moveDirection');
+
+	    if (this.map[this.player.location]) {
+	      var currentLocation = this.map[this.player.location];
+	      $log.log('currentLocation', currentLocation);
+	      var nextRoom = currentLocation[direction];
+	      $log.log('nextRoom', nextRoom);
+	      if (nextRoom !== 'wall') this.player.location = nextRoom;
+	    }
+	  };
+	}
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = {
+	  roomA: {
+	    north: 'wall',
+	    east: 'roomB',
+	    south: 'roomC',
+	    west: 'wall'
+	  },
+	  roomB: {
+	    north: 'wall',
+	    east: 'wall',
+	    south: 'roomD',
+	    west: 'roomA'
+	  },
+	  roomC: {
+	    north: 'roomA',
+	    east: 'roomD',
+	    south: 'wall',
+	    west: 'wall'
+	  },
+	  roomD: {
+	    north: 'roomB',
+	    east: 'wall',
+	    south: 'wall',
+	    west: 'roomC'
+	  }
+	};
 
 /***/ }
 /******/ ]);
