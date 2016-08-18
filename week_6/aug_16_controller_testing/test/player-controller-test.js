@@ -5,7 +5,7 @@ describe('testing player-controller', function () {
     angular.mock.module('demoApp');
     angular.mock.inject(($controller, $rootScope) => {
       this.scope = $rootScope.$new();
-      new $controller('PlayerController', {$scope: this.scope});
+      new $controller('PlayerController', { $scope: this.scope });
     });
   });
 
@@ -14,4 +14,3 @@ describe('testing player-controller', function () {
     expect(this.scope.playerCtrl.player.name).toBe('goo');
   });
 });
-
