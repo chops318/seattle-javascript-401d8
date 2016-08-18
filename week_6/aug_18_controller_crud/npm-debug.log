@@ -1,0 +1,49 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/slugbyte/.node/v4.4.4/bin/node',
+1 verbose cli   '/Users/slugbyte/.node/v4.4.4/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'watch' ]
+2 info using npm@3.10.3
+3 info using node@v4.4.4
+4 verbose run-script [ 'prewatch', 'watch', 'postwatch' ]
+5 info lifecycle aug_18_controller_crud@1.0.0~prewatch: aug_18_controller_crud@1.0.0
+6 silly lifecycle aug_18_controller_crud@1.0.0~prewatch: no script for prewatch, continuing
+7 info lifecycle aug_18_controller_crud@1.0.0~watch: aug_18_controller_crud@1.0.0
+8 verbose lifecycle aug_18_controller_crud@1.0.0~watch: unsafe-perm in lifecycle true
+9 verbose lifecycle aug_18_controller_crud@1.0.0~watch: PATH: /Users/slugbyte/.node/v4.4.4/lib/node_modules/npm/bin/node-gyp-bin:/Users/slugbyte/cf/seattle-javascript-401d8/week_6/aug_18_controller_crud/node_modules/.bin:/Users/slugbyte/.node/v4.4.4/bin:/Users/slugbyte/.dot/os/osx/bin:/Users/slugbyte/.dot/all/bin:/Users/slugbyte/.dot/bin:/Users/slugbyte/.node/v4.4.4/bin:/Users/slugbyte/.go/V1.6/bin:/Users/slugbyte/gitz/go/V1.6/bin:/Users/slugbyte/.bash/v4.3/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin
+10 verbose lifecycle aug_18_controller_crud@1.0.0~watch: CWD: /Users/slugbyte/cf/seattle-javascript-401d8/week_6/aug_18_controller_crud
+11 silly lifecycle aug_18_controller_crud@1.0.0~watch: Args: [ '-c',
+11 silly lifecycle   './node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot' ]
+12 silly lifecycle aug_18_controller_crud@1.0.0~watch: Returned: code: 1  signal: null
+13 info lifecycle aug_18_controller_crud@1.0.0~watch: Failed to exec watch script
+14 verbose stack Error: aug_18_controller_crud@1.0.0 watch: `./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (/Users/slugbyte/.node/v4.4.4/lib/node_modules/npm/lib/utils/lifecycle.js:242:16)
+14 verbose stack     at emitTwo (events.js:87:13)
+14 verbose stack     at EventEmitter.emit (events.js:172:7)
+14 verbose stack     at ChildProcess.<anonymous> (/Users/slugbyte/.node/v4.4.4/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:87:13)
+14 verbose stack     at ChildProcess.emit (events.js:172:7)
+14 verbose stack     at maybeClose (internal/child_process.js:827:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+15 verbose pkgid aug_18_controller_crud@1.0.0
+16 verbose cwd /Users/slugbyte/cf/seattle-javascript-401d8/week_6/aug_18_controller_crud
+17 error Darwin 15.5.0
+18 error argv "/Users/slugbyte/.node/v4.4.4/bin/node" "/Users/slugbyte/.node/v4.4.4/bin/npm" "run" "watch"
+19 error node v4.4.4
+20 error npm  v3.10.3
+21 error code ELIFECYCLE
+22 error aug_18_controller_crud@1.0.0 watch: `./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot`
+22 error Exit status 1
+23 error Failed at the aug_18_controller_crud@1.0.0 watch script './node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the aug_18_controller_crud package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs aug_18_controller_crud
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls aug_18_controller_crud
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
