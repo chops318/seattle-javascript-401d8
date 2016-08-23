@@ -5,6 +5,9 @@ module.exports = function(app) {
     return {
       restrict: 'EAC',
       template: require('./dummy-directive.html'),
+      controller: 'DummyDirectiveController',
+      controllerAs: 'dd',
+      bindToController: true,
       scope: {
         title: '@',
         contents: '='

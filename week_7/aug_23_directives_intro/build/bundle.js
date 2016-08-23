@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval("'use strict';\n\n__webpack_require__(1);\n\nvar angular = __webpack_require__(2);\nvar demoApp = angular.module('demoApp', [__webpack_require__(4)]);\n\n__webpack_require__(6)(demoApp);\n__webpack_require__(8)(demoApp);\n\ndemoApp.config(['$routeProvider', function ($route) {\n  $route.when('/home', {\n    template: __webpack_require__(12),\n    controller: 'DemoController',\n    controllerAs: 'dc'\n  }).otherwise({\n    redirectTo: '/home'\n  });\n}]);\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/index.js\n ** module id = 0\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./app/index.js?");
+	eval("'use strict';\n\n__webpack_require__(1);\n\nvar angular = __webpack_require__(2);\nvar demoApp = angular.module('demoApp', [__webpack_require__(4)]);\n\n__webpack_require__(6)(demoApp);\n__webpack_require__(8)(demoApp);\n\ndemoApp.config(['$routeProvider', function ($route) {\n  $route.when('/home', {\n    template: __webpack_require__(17),\n    controller: 'DemoController',\n    controllerAs: 'dc'\n  }).otherwise({\n    redirectTo: '/home'\n  });\n}]);\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/index.js\n ** module id = 0\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./app/index.js?");
 
 /***/ },
 /* 1 */
@@ -86,37 +86,67 @@
 /* 7 */
 /***/ function(module, exports) {
 
-	eval("'use strict';\n\nmodule.exports = function (app) {\n  app.controller('DemoController', function () {\n    this.title = 'Awesome Title';\n    this.contents = 'Hello World!';\n  });\n};\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/controllers/demo_controller.js\n ** module id = 7\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./app/controllers/demo_controller.js?");
+	eval("'use strict';\n\nmodule.exports = function (app) {\n  app.controller('DemoController', function () {\n    this.posts = [{\n      title: 'Frist Post',\n      contents: 'Wow, such post, much content',\n      mutable: true\n    }, {\n      title: 'Second Post',\n      contents: 'Moar Gr8 Content From the intarwebzzzz'\n    }, {\n      title: 'Third Post',\n      contents: 'Some more content',\n      mutable: true\n    }];\n  });\n};\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/controllers/demo_controller.js\n ** module id = 7\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./app/controllers/demo_controller.js?");
 
 /***/ },
 /* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval("'use strict';\n\nmodule.exports = function (app) {\n  __webpack_require__(9)(app);\n};\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/components/index.js\n ** module id = 8\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./app/components/index.js?");
+	eval("'use strict';\n\nmodule.exports = function (app) {\n  __webpack_require__(9)(app);\n  __webpack_require__(13)(app);\n};\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/components/index.js\n ** module id = 8\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./app/components/index.js?");
 
 /***/ },
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval("'use strict';\n\nmodule.exports = function (app) {\n  __webpack_require__(10)(app);\n};\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/components/dummy-component/index.js\n ** module id = 9\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./app/components/dummy-component/index.js?");
+	eval("'use strict';\n\nmodule.exports = function (app) {\n  __webpack_require__(10)(app);\n  __webpack_require__(11)(app);\n};\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/components/dummy-component/index.js\n ** module id = 9\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./app/components/dummy-component/index.js?");
 
 /***/ },
 /* 10 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	eval("'use strict';\n\nmodule.exports = function (app) {\n  app.directive('cfDummyDirective', function () {\n    return {\n      restrict: 'EAC',\n      template: __webpack_require__(11),\n      scope: {\n        title: '@',\n        contents: '='\n      }\n    };\n  });\n};\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/components/dummy-component/dummy-directive.js\n ** module id = 10\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./app/components/dummy-component/dummy-directive.js?");
+	eval("'use strict';\n\nmodule.exports = function (app) {\n  app.controller('DummyDirectiveController', function () {\n    this.contents = this.contents || 'hello from directive';\n  });\n};\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/components/dummy-component/dummy-directive-ctrl.js\n ** module id = 10\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./app/components/dummy-component/dummy-directive-ctrl.js?");
 
 /***/ },
 /* 11 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	eval("module.exports = \"<div>\\n  <h2>{{title}}</h2>\\n  <h3>{{contents}}</h3>\\n  <input type=\\\"text\\\" data-ng-model=\\\"title\\\">\\n</div>\\n\";\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/components/dummy-component/dummy-directive.html\n ** module id = 11\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./app/components/dummy-component/dummy-directive.html?");
+	eval("'use strict';\n\nmodule.exports = function (app) {\n  app.directive('cfDummyDirective', function () {\n    return {\n      restrict: 'EAC',\n      template: __webpack_require__(12),\n      controller: 'DummyDirectiveController',\n      controllerAs: 'dd',\n      bindToController: true,\n      scope: {\n        title: '@',\n        contents: '='\n      }\n    };\n  });\n};\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/components/dummy-component/dummy-directive.js\n ** module id = 11\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./app/components/dummy-component/dummy-directive.js?");
 
 /***/ },
 /* 12 */
 /***/ function(module, exports) {
 
-	eval("module.exports = \"<div>\\n  <h1>Hello From Our Awesome App</h1>\\n  <div data-cf-dummy-directive data-title=\\\"{{dc.title}}\\\" data-contents=\\\"dc.contents\\\"></div>\\n</div>\\n\";\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/html/home.html\n ** module id = 12\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./app/html/home.html?");
+	eval("module.exports = \"<div>\\n  <h2>{{dd.title}}</h2>\\n  <h3>{{dd.contents}}</h3>\\n  <input type=\\\"text\\\" data-ng-model=\\\"dd.contents\\\">\\n</div>\\n\";\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/components/dummy-component/dummy-directive.html\n ** module id = 12\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./app/components/dummy-component/dummy-directive.html?");
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	eval("'use strict';\n\nmodule.exports = function (app) {\n  __webpack_require__(14)(app);\n  __webpack_require__(15)(app);\n};\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/components/another-component/index.js\n ** module id = 13\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./app/components/another-component/index.js?");
+
+/***/ },
+/* 14 */
+/***/ function(module, exports) {
+
+	eval("'use strict';\n\nmodule.exports = function (app) {\n  app.controller('AnotherComponentController', function () {\n    this.contents = this.contents || 'no content';\n  });\n};\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/components/another-component/another-directive-ctrl.js\n ** module id = 14\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./app/components/another-component/another-directive-ctrl.js?");
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	eval("'use strict';\n\nmodule.exports = function (app) {\n  app.directive('cfAnotherDirective', function () {\n    return {\n      template: __webpack_require__(16),\n      controller: 'AnotherComponentController',\n      controllerAs: 'ctrl',\n      bindToController: true,\n      scope: {\n        title: '@',\n        contents: '='\n      }\n    };\n  });\n};\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/components/another-component/another-directive.js\n ** module id = 15\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./app/components/another-component/another-directive.js?");
+
+/***/ },
+/* 16 */
+/***/ function(module, exports) {
+
+	eval("module.exports = \"<div>\\n  <h2>{{ctrl.title}}</h2>\\n  <p>{{ctrl.contents}}</p>\\n</div>\\n\";\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/components/another-component/another-component.html\n ** module id = 16\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./app/components/another-component/another-component.html?");
+
+/***/ },
+/* 17 */
+/***/ function(module, exports) {
+
+	eval("module.exports = \"<div>\\n  <h1>Hello From Our Awesome App</h1>\\n  <ul>\\n  \\t<li data-ng-repeat=\\\"post in dc.posts\\\">\\n      <div data-cf-dummy-directive data-ng-if=\\\"post.mutable\\\" data-title=\\\"{{post.title}}\\\" data-contents=\\\"post.contents\\\"></div>\\n      <div data-cf-another-directive data-ng-if=\\\"!post.mutable\\\" data-title=\\\"{{post.title}}\\\" data-contents=\\\"post.contents\\\"></div>\\n\\n    </li>\\n  </ul>\\n</div>\\n\";\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/html/home.html\n ** module id = 17\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./app/html/home.html?");
 
 /***/ }
 /******/ ]);
