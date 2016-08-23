@@ -14,7 +14,7 @@ var app = angular.module('demoApp', [angular_route]);
 app.config(['$routeProvider', function($route) {
   $route
     .when('/', {
-      templateUrl: '/app/view/home/home.html',
+      template: require('./view/home/home.html'),
       controller: 'HomeController',
       controllerAs: 'hc'
     })
