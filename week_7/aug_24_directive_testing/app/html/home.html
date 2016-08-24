@@ -1,0 +1,10 @@
+<div>
+  <h1>Hello From Our Awesome App</h1>
+  <ul>
+  	<li data-ng-repeat="post in dc.posts">
+      <div data-cf-dummy-directive data-ng-if="post.mutable" data-title="{{post.title}}" data-contents="post.contents"></div>
+      <div data-cf-another-directive data-ng-if="!post.mutable" data-title="{{post.title}}" data-contents="post.contents"></div>
+
+    </li>
+  </ul>
+</div>
