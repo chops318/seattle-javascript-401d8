@@ -1,0 +1,6 @@
+<div>
+  <p>{{ctrl.note.text}}</p>
+  <div data-cf-note-form data-button-text="Update Note" data-note="ctrl.note" data-save="ctrl.updateNote()" data-ng-if="ctrl.note.editing"></div>
+  <button data-ng-click="ctrl.removeNote(ctrl.note)">x</button>
+  <button data-ng-click="ctrl.note.editing = true" data-ng-if="!ctrl.note.editing">Edit</button>
+</div>

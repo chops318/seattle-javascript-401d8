@@ -1,0 +1,7 @@
+<div>
+  <h2>{{ctrl.title}}</h2>
+  <div data-cf-note-form data-save="ctrl.addNote(note)" data-button-text="Create Note"></div>
+  <ul>
+    <li data-ng-repeat="note in ctrl.notes" data-cf-note-item data-note="note"></li>
+  </ul>
+</div>
