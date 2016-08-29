@@ -50,7 +50,19 @@
 	__webpack_require__(2);
 
 	var angular = __webpack_require__(12);
-	angular.module('demoApp', []);
+	var demoApp = angular.module('demoApp', []);
+
+	demoApp.run('$rootScope', function ($rs) {
+	  $rs.noteListUrl = ("http://localhost:3000") + '/api/list';
+	  $rs.noteHttpConfig = {
+	    headers: {
+	      'Content-Type': 'application/json',
+	      'Accept-Content': 'application/json'
+	    }
+	  };
+	});
+
+	__webpack_require__(14)(demoApp);
 
 /***/ },
 /* 1 */
@@ -31853,6 +31865,110 @@
 	})(window);
 
 	!window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = function (app) {
+	  __webpack_require__(15)(app);
+	};
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = function (app) {
+	  __webpack_require__(16)(app);
+	  __webpack_require__(17)(app);
+	};
+
+/***/ },
+/* 16 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function (app) {
+	  app.controller('ListController', ['$log', '$http', ListController]);
+	};
+
+	function ListController($log, $http) {
+	  this.lists = [];
+	  this.getAllLists = function () {
+	    var _this = this;
+
+	    $log.debug('listCtrl.getAllLists');
+	    $http.get(this.baseUrl, this.config).then(function (res) {
+	      _this.lists = res.data;
+	    }, function (err) {
+	      $log.error('error!', err);
+	    });
+	  };
+
+	  this.deleteList = function (list) {
+	    var _this2 = this;
+
+	    $log.debug('listCtrl.deleteList');
+	    $http.delete(this.baseUrl + '/' + list._id, this.config).then(function (res) {
+	      _this2.lists.splice(_this2.lists.indexOf(list), 1);
+	    }, function (err) {
+	      $log.error('error!', err);
+	    });
+	  };
+
+	  this.updateList = function (list) {
+	    $log.debug('listCtrl.updateList');
+	    $http.put(this.baseUrl + '/' + list._id, list, this.config).then(function (res) {
+	      list.editing = false;
+	    }, function (err) {
+	      $log.error('error!', err);
+	    });
+	  };
+
+	  this.createList = function (list) {
+	    var _this3 = this;
+
+	    $log.debug('listCtrl.createList');
+	    $http.post(this.baseUrl, list, this.config).then(function (res) {
+	      $log.log('success!', res.data);
+	      _this3.lists.push(res.data);
+	    }).catch(function (err) {
+	      $log.error('error!', err);
+	    });
+	  };
+	}
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = function (app) {
+	  app.directive('cfList', function () {
+	    return {
+	      controller: 'ListController',
+	      controllerAs: 'listCtrl',
+	      template: __webpack_require__(18),
+	      bindToController: true,
+	      scope: {
+	        baseUrl: '@',
+	        config: '='
+	      }
+	    };
+	  });
+	};
+
+/***/ },
+/* 18 */
+/***/ function(module, exports) {
+
+	module.exports = "<div ng-init=\"listCtrl.getAllLists()\">\n  <form class=\"form-inline\"\n    novalidate ng-submit=\"listCtrl.createList(listCtrl.list)\">\n\n    <div class=\"form-group\">\n      <label for=\"name\"> Name: </label>\n      <input name=\"name\" class=\"form-control\" ng-model=\"listCtrl.list.name\">\n    </div>\n\n    <button type=\"submit\" class=\"btn btn-default\"> + </button>\n  </form>\n\n  <h1>Note Lists: </h1>\n  <ul>\n    <li ng-repeat=\"list in listCtrl.lists\">\n      <span ng-if=\"!list.editing\">\n        {{list.name}}\n        <button ng-click=\"listCtrl.deleteList(list)\">x</button>\n        <button ng-click=\"list.editing = true\">Edit</button>\n      </span>\n      <form ng-submit=\"listCtrl.updateList(list)\" ng-if=\"list.editing\">\n        <label for=\"ListName\">List Name</label>\n        <input type=\"text\" ng-model=\"list.name\">\n        <button type=\"submit\">Update List</button>\n      </form>\n    </li>\n  </ul>\n</div>\n\n";
 
 /***/ }
 /******/ ]);
