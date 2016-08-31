@@ -1,0 +1,14 @@
+@import "./vendor/bootstrap/stylesheets/_bootstrap.scss";
+@import "./vendor/font-awesome-4.6.3/scss/font-awesome.scss";
+
+$app-default: #ff7a7a;
+
+html, body {
+  width:100%;
+  height: 100%;
+}
+
+body {
+  background-color: $app-default;
+}
+
