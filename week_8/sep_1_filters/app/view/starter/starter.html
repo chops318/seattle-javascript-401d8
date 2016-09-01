@@ -1,0 +1,23 @@
+<h2>Customers Starter</h2> Filter: <input type="text" />
+<br /><br />
+<table>
+  <tr>
+    <th>Name</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Order Total</th>
+    <th>Order Date</th>
+  </tr>
+
+  <tr ng-repeat="cust in starterController.customers">
+    <td>{{ cust.name }}</td>
+    <td>{{ cust.city }} </td>
+    <td>{{ cust.state }}</td>
+    <td>{{ cust.orderTotal }}</td>
+    <td>{{ cust.orderDate }}</td>
+  </tr>
+</table>
+<br />
+<span>Total customers: {{ starterController.customers.length }}</span>
+<br />
+<span>Total order amount: {{ starterController.totalOrderAmount() }}</span>
