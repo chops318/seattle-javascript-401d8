@@ -10,12 +10,13 @@ const debug = require('debug')('note:list-router');
 // app modules
 const List = require('../model/list');
 const Note = require('../model/note');
+const jwtAuth = require('../lib/jwt_auth');
 
 //module constants
 let listRouter = module.exports = exports = new Router();
 
 // module logic
-listRouter.post('/list', jsonParser, function(req, res, next){
+listRouter.post('/list', jsonParser, jwtAuth, function(req, res, next){
   debug('POST /api/list');
   if (!req.body.name ) 
     return next(createError(400, 'ERROR: list requires name field'));
